@@ -21,7 +21,7 @@ export default function Login() {
     }
 
     try {
-      const res = await axios.post("http://localhost:9500/members/login", {
+      const res = await axios.post("http://localhost:9999/members/login", {
         email,
         password,
       });
@@ -39,12 +39,15 @@ export default function Login() {
       localStorage.setItem("lastName", res.data.lastName);
       localStorage.setItem("firstName", res.data.firstName);
 
+      const loginTime = new Date().getTime();
+      localStorage.setItem("loginTime", loginTime.toString());
+
       window.dispatchEvent(new Event("storage"));
 
       alert("로그인 성공");
 
       // SPA 방식 페이지 이동
-      router.push("/admin");
+      router.push("/");
     } catch (err) {
       console.error(err);
       alert("로그인 실패! 이메일 또는 비밀번호를 확인해 주세요");
