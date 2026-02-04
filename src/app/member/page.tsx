@@ -1,7 +1,7 @@
-
 "use client";
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import { Row, Col, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -47,6 +47,8 @@ interface MemberForm {
 const BACKEND_BASE_URL = "http://localhost:9999";
 
 export default function Member() {
+  const router = useRouter();
+
   const [form, setForm] = useState<MemberForm>({
     firstName: "",
     lastName: "",
@@ -90,8 +92,21 @@ export default function Member() {
     }
 
     try {
-      await axios.post(`${BACKEND_BASE_URL}/members/register`, form);
-      alert("회원가입 성공");
+      await axios.post(
+        `${BACKEND_BASE_URL}/api/members/register`,
+        form,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true, // ✅ 이거 한 줄만 추가
+        }
+      );
+
+      alert("회원가입 성공 🎉");
+
+      // ✅ 메인 페이지로 이동
+      router.push("/");
     } catch (error) {
       console.error(error);
       alert("회원가입 중 오류 발생");
