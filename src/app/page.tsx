@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Carousel } from "react-bootstrap";
 import { useRouter } from "next/navigation";
 
 import Header from "@/include/Header";
@@ -92,56 +92,53 @@ export default function Home() {
         setIsLogin={setIsLogin}
       />
 
+      <Carousel fade>
+        <Carousel.Item>
+          <img
+          className="d-block w-100"
+          src="/img/01.png"
+          alt="First slide"
+                width="100%"   // 여기서 width를 지정해 주세요.
+      height="auto"  // height을 "auto"로 지정해서 비율을 유지합니다.
+        />
+          <Carousel.Caption>
+            <h3>블라블라</h3>
+            <p>랄랄랄랄라</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <img
+          className="d-block w-100"
+          src="/img/02.png"
+          alt="Second slide"
+                width="100%"   // 여기서 width를 지정해 주세요.
+      height="auto"  // height을 "auto"로 지정해서 비율을 유지합니다.
+        />
+          <Carousel.Caption>
+            <h3>블라블라</h3>
+            <p>랄랄랄랄라</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <img
+          className="d-block w-100"
+          src="/img/03.png"
+          alt="Third slide"
+                width="100%"   // 여기서 width를 지정해 주세요.
+      height="auto"  // height을 "auto"로 지정해서 비율을 유지합니다.
+        />
+          <Carousel.Caption>
+            <h3>블라블라</h3>
+            <p>랄랄랄랄라</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+      </Carousel>
+
       <Container className="py-4">
-        <h1>쇼핑몰 메인</h1>
-
-        <div className="d-flex flex-wrap gap-3 mt-3">
-          {products.map(p => (
-            <div
-              key={p.id}
-              className="border p-3 d-flex flex-column justify-content-between"
-              style={{ width: 200, height: 320, cursor: "pointer" }}
-              onClick={() => openModal("view", p.id)}
-            >
-              {p.imageUrl && (
-                <img
-                  src={`${API_ROOT}${p.imageUrl}`}
-                  alt={p.title}
-                  style={{ width: "100%", height: 140, objectFit: "cover" }}
-                />
-              )}
-              <div>
-                <h5 className="mt-2 mb-1">{p.title}</h5>
-                <p style={{ fontSize: 12, marginBottom: 4 }}>
-                  {getCategoryName(p.primaryCategory, p.secondaryCategory)}
-                </p>
-                <p style={{ fontWeight: "bold", marginBottom: 0 }}>
-                  {p.price.toLocaleString()}원
-                </p>
-              </div>
-
-              <div
-                className="d-flex gap-2 mt-3"
-                onClick={e => e.stopPropagation()} // 버튼 클릭 시 카드 클릭 이벤트 차단
-              >
-                <Button
-                  variant="primary"
-                  size="sm"
-                  onClick={() => openModal("edit", p.id)}
-                >
-                  수정
-                </Button>
-                <Button
-                  variant="danger"
-                  size="sm"
-                  onClick={() => handleDelete(p.id)}
-                >
-                  삭제
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
+        
       </Container>
 
       {/* 상품 모달 */}

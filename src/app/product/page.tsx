@@ -45,13 +45,29 @@ export default function ProductEditPage() {
 
   //장바구니에 상품 추가
   const handleAddToCart = () => {
+    if (!product) return;
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const existingProduct = cart.find(
+      (item:any) => item.id === product.id
+    );
+    if (existingProduct) {
+      alert("이미 장바구니에 추가된 상품입니다.");
+    }else {
+      cart.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart));
     alert("장바구니에 상품을 추가했습니다.");
   }
+  };
 
   //결제처리
   const handleCheckout = () => {
-    router.push("/checkout");
-  };
+    if(isLogin){
+      router.push("/checkout"); 
+    }else{
+      alert("로그인이 필요합니다");
+    router.push("/login");
+  }
+};
 
   useEffect(() => {
     fetchProductDetails();
@@ -84,8 +100,10 @@ export default function ProductEditPage() {
 
             {userRole === "developer" && (
               <div className="d-flex gap-2 mt-3">
-                <Button variant="warning" onClick={() => router.push(`/products/edit/${product.id}`)}>상품 수정</Button>
-                <Button variant="danger" onClick={() => { if (confirm("정말 삭제하시겠습니까?")) { /* 삭제 로직 */ } }}>상품 삭제</Button>
+                <Button variant="warning" onClick={() => router.push(`/products/edit/${product.id}`)}>
+                  상품 수정</Button>
+                <Button variant="danger" onClick={() => { if (confirm("정말 삭제하시겠습니까?")) { /* 삭제 로직 */ } }}>
+                  상품 삭제</Button>
               </div>
             )}
           </>
