@@ -28,6 +28,47 @@ type OrderDetails = {
 };
 
 export default function OrderPage() {
+
+  const startKakaoPay = async () => {
+  if (cart.length === 0) {
+    alert("장바구니가 비어있습니다.");
+    return;
+  }
+  if (!orderDetails.address) {
+    alert("주소를 입력해주세요.");
+    return;
+  }
+
+  // 백엔드로 보낼 최소 데이터 (서버에서 order 생성/금액 검증 권장)
+  const payload = {
+    items: cart.map((x) => ({ productId: x.id, qty: x.qty })),
+    address: orderDetails.address,
+    detailAddress: orderDetails.detailAddress,
+  };
+
+  const res = await fetch("http://localhost:9999/api/payments/kakaopay/ready", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ amount: totalPrice }), // ✅ 이게 핵심
+});
+
+  if (!res.ok) {
+    const msg = await res.text().catch(() => "");
+    alert(`카카오페이 결제 준비 실패\n${msg}`);
+    return;
+  }
+
+  const data = await res.json();
+  // data.redirectUrl 같은 형태로 받는다고 가정
+  if (!data?.redirectUrl) {
+    alert("redirectUrl이 응답에 없습니다.");
+    return;
+  }
+
+  // 카카오 결제창으로 이동
+  window.location.href = data.redirectUrl;
+};
+
   const router = useRouter();
 
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -137,9 +178,15 @@ const resolveImageSrc = (url?: string | null) => {
   }).open();
 };
 
-  const handlePlaceOrder = () => {
-    alert("주문이 완료되었습니다.");
-  };
+  const handlePlaceOrder = async () => {
+  if (orderDetails.paymentMethod === "kakao") {
+    await startKakaoPay();
+    return;
+  }
+
+  // 카드(임시): 기존처럼 완료 처리
+  alert("주문이 완료되었습니다. (카드 결제는 추후 구현)");
+};
 
   const handleOpenModal = () => {};
   const handleSetIsLogin = (v: boolean) => setIsLogin(v);

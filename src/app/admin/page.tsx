@@ -55,6 +55,7 @@ export default function Admin() {
 
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const onOpenModal = () => openModal("create");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   /* -----------------------------
      ✅ nav 메뉴 조회
@@ -171,10 +172,10 @@ const findCategoryPath = (categoryId?: number) => {
 
       <MainContentWrapper>
         <Header
-        className="admin-header"
-          onOpenModal={() => openModal("create")}
+        onOpenModal={() => {}}
           isLogin={isLogin}
           setIsLogin={setIsLogin}
+          onToggleSidebar={() => setSidebarOpen((v) => !v)}
         />
 
         <Content>
@@ -254,19 +255,6 @@ const findCategoryPath = (categoryId?: number) => {
           categoryList={menuTree} // ✅ 변경
         />
       </MainContentWrapper>
-
-      <style jsx global>{`
-  .admin-header {
-    left: 260px !important;
-    width: calc(100% - 260px) !important;
-  }
-  @media (max-width: 991px) {
-    .admin-header {
-      left: 0 !important;
-      width: 100% !important;
-    }
-  }
-`}</style>
     </PageWrapper>
   );
 }

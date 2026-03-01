@@ -145,13 +145,10 @@ export default function Category() {
   return (
     <>
       <Header 
-        isLogin={isLogin} 
-        setIsLogin={setIsLogin} 
-        onOpenModal={() => {
-          setModalMode("create");
-          setCurrentProductId(undefined);
-          setShowModal(true);
-        }} 
+      onOpenModal={() => {}}
+          isLogin={isLogin}
+          setIsLogin={setIsLogin}
+          onToggleSidebar={() => setSidebarOpen((v) => !v)}
       />
 
       <PageWrapper>
