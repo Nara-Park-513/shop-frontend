@@ -1,0 +1,91 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+  }
+  
+  .card {
+    width: 360px;
+    padding: 28px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+  
+  .label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  
+  .passwordBox {
+    position: relative;
+  }
+  
+  .eye {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .forgot {
+    font-size: 12px;
+    color: #6b7280;
+    text-align: right;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+  
+  .loginBtn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #facc15;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .divider {
+    margin: 18px 0;
+    font-size: 13px;
+    text-align: center;
+    color: #6b7280;
+  }
+  
+  .signupBtn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .error {
+    color: #dc2626;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  

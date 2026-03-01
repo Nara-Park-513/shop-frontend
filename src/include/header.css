@@ -1,0 +1,132 @@
+/* 드롭다운을 전체 화면 기준으로 확장 */
+.mega-dropdown {
+  position: static !important;
+}
+
+.mega-dropdown .dropdown-menu {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 40px 80px;
+  border-radius: 0;
+  border-top: 1px solid #eee;
+}
+
+/* 내부 레이아웃 */
+.mega-menu {
+  display: flex;
+  gap: 80px;
+  max-width: 1400px;
+  margin: 0 auto; /* 가운데 정렬 */
+}
+
+/* 한 컬럼 */
+.mega-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+}
+
+/* 2단 제목 */
+.mega-title {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #000;
+}
+
+.mega-title-link {
+  text-decoration: none;
+  color: black;
+}
+
+/* 3단 메뉴 */
+.mega-item {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.mega-item:hover {
+  background: none;
+  color: black;
+}
+
+/* 상단 네비 메뉴 링크 - 호버 시 색상 변경 */
+.site-header .header-nav > div > a {
+  color: #111827 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+.site-header .header-nav > div > a:hover,
+.site-header .header-nav > div > a:focus {
+  color: #6b7280 !important;
+  text-decoration: none !important;
+}
+.site-header .header-nav > div > a:visited {
+  color: #111827 !important;
+  text-decoration: none !important;
+}
+.site-header .header-nav > div > a:visited:hover {
+  color: #6b7280 !important;
+}
+
+/* 마우스 오버 시 메가 메뉴 드롭다운 표시 */
+.nav-item:hover .mega-menu-dropdown {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+/* 메가 메뉴 - 일열 배치 */
+.mega-menu-grid {
+  display: flex !important;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+/* 메가 메뉴 드롭다운 링크 호버 - 색상·배경 변경 */
+.site-header .mega-menu-dropdown .mega-menu-content a {
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.2s ease, background-color 0.2s ease !important;
+}
+.site-header .mega-menu-dropdown .mega-menu-content a:hover {
+  color: #374151 !important;
+  background-color: #e5e7eb !important;
+}
+
+/* 로그인, 회원가입, 장바구니 등 우측 버튼 호버 */
+.site-header .header-btns a,
+.site-header .header-btns button {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease !important;
+}
+.site-header .header-btns a:hover,
+.site-header .header-btns button:hover {
+  color: #374151 !important;
+  background-color: #f3f4f6 !important;
+  border-color: #9ca3af !important;
+}
+/* 로그인(primary) 버튼 호버 - 어두운 톤 유지 */
+.site-header .header-btns a.btn-primary:hover {
+  color: #fff !important;
+  background-color: #374151 !important;
+  border-color: transparent !important;
+}
+/* 유틸리티 링크(장바구니 아이콘) 호버 */
+.site-header .header-btns > a:hover {
+  color: #374151 !important;
+  background-color: transparent !important;
+}
+.site-header .header-btns > a[href="/cart"]:hover {
+  background-color: #f3f4f6 !important;
+  border-radius: 6px;
+}
+/* 검색 input 포커스 */
+.site-header .header-btns input:focus {
+  border-color: #9ca3af !important;
+}
