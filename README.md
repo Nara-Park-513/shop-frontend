@@ -82,32 +82,31 @@ DAON은 사용자 관점의 주문형 쇼핑몰 기능과
 1. 주문 채널
 
 상품 목록을 조회하고, 상세보기 및 장바구니 담기 기능을 제공하는 화면입니다.
-![주문 채널](public/img/주문 채널.png)
+<img src="public/img/order-channel.png" alt="주문 채널" width="800" />
 
 2. 장바구니
 
 선택한 상품을 확인하고 수량 조절, 삭제, 총 금액 확인이 가능한 화면입니다.
-![장바구니](public/img/장바구니.png)
+<img src="public/img/cart.png" alt="장바구니" width="800" />
 
 3. 주문하기
 
 배송지 입력과 결제수단 선택 후 실제 주문을 진행하는 화면입니다.
-![주문하기](public/img/주문하기.png)
+<img src="public/img/order-page.png" alt="주문하기" width="800" />
 
 4. 카카오 결제 화면
 
 카카오페이 결제를 진행하는 단계의 화면입니다.
-![카카오 결제](public/img/카카오 결제.png)
-
+<img src="public/img/kakao-pay.png" alt="카카오 결제" width="800" />
 5. 카카오 결제 과정
 
 사용자가 QR 또는 카카오 결제 흐름을 통해 결제를 진행하는 화면입니다.
-![카카오 결제 과정](public/img/카카오 결제 과정.png)
+<img src="public/img/kakao-pay-process.png" alt="카카오 결제 과정" width="800" />
 
 6. 카카오 결제 완료
 
 결제 완료 후 카카오페이에서 확인 가능한 완료 화면입니다.
-![카카오 결제 완료](public/img/카카오 결제 완료.png)
+<img src="public/img/kakao-pay-done.jpg" alt="카카오 결제 완료" width="800" />
 
 🛠 Getting Started
 1. Install dependencies
