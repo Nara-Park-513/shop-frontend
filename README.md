@@ -68,47 +68,48 @@ DAON은 사용자 관점의 주문형 쇼핑몰 기능과
 
 ## 🔄 Payment Flow
 
-```text
 1. 사용자가 상품을 장바구니에 담는다
 2. 주문 페이지에서 주소 및 결제수단을 입력한다
 3. 프론트엔드에서 백엔드 Ready API를 호출한다
 4. 백엔드가 카카오페이 결제 URL을 반환한다
 5. 사용자가 카카오 결제창에서 결제를 진행한다
 6. 결제 완료 후 success 페이지로 리다이렉트된다
-7. pg_token을 백엔드 Approve API로 전달한다
+7. `pg_token`을 백엔드 Approve API로 전달한다
 8. 최종 결제 승인 및 완료 처리가 이루어진다
+
+---
 
 ## 🖼 Screenshots
 
 ### 1. 주문 채널
-상품 목록을 조회하고 상품 상세 확인 및 장바구니 담기가 가능한 화면입니다.
+상품 목록을 조회하고, 상세보기 및 장바구니 담기 기능을 제공하는 화면입니다.
 
-![주문 채널](./public/img/order-channer.png)
+<img src="./public/img/order-channel.png" alt="주문 채널" width="800" />
 
 ### 2. 장바구니
-선택한 상품을 확인하고 수량 변경, 삭제, 총 금액 확인이 가능한 화면입니다.
+선택한 상품을 확인하고 수량 조절, 삭제, 총 금액 확인이 가능한 화면입니다.
 
-![장바구니](./public/img/cart.png)
+<img src="./public/img/cart.png" alt="장바구니" width="800" />
 
 ### 3. 주문하기
-배송지와 상세주소를 입력하고 결제수단을 선택한 뒤 주문을 진행하는 화면입니다.
+배송지 입력과 결제수단 선택 후 실제 주문을 진행하는 화면입니다.
 
-![주문하기](./public/img/order-page.png)
+<img src="./public/img/order-page.png" alt="주문하기" width="800" />
 
-### 4. 카카오 결제
-카카오페이 결제를 진행하기 위한 화면입니다.
+### 4. 카카오 결제 화면
+카카오페이 결제를 진행하는 단계의 화면입니다.
 
-![카카오 결제](./public/img/kakao-pay.png)
+<img src="./public/img/kakao-pay.png" alt="카카오 결제" width="800" />
 
 ### 5. 카카오 결제 과정
-QR 스캔 또는 카카오톡 결제를 통해 실제 결제를 진행하는 화면입니다.
+사용자가 QR 또는 카카오 결제 흐름을 통해 결제를 진행하는 화면입니다.
 
-![카카오 결제 과정](./public/img/kakao-pay-process.png)
+<img src="./public/img/kakao-pay-process.png" alt="카카오 결제 과정" width="800" />
 
 ### 6. 카카오 결제 완료
-결제 완료 후 결제 정보와 상태를 확인할 수 있는 화면입니다.
+결제 완료 후 카카오페이에서 확인 가능한 완료 화면입니다.
 
-![카카오 결제 완료](./public/img/kakao-pay-done.jpg)
+<img src="./public/img/kakao-pay-done.jpg" alt="카카오 결제 완료" width="800" />
 
 🛠 Getting Started
 1. Install dependencies
